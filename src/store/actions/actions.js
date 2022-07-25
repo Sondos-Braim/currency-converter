@@ -14,11 +14,7 @@ import axiosInstance from "../../axios";
 export const getAvailableCurrencies = () => (dispatch) => {
   try {
     axiosInstance
-      .get(`symbols`, {
-        headers: {
-          apikey: process.env.REACT_APP_API_KEY,
-        },
-      })
+      .get(`symbols`)
       .then((res) => {
         dispatch({
           type: GET_AVAILABLE_CURRENCIES,
@@ -69,10 +65,7 @@ export const setConvertResult = (payload) => (dispatch) => {
           from: payload.from,
           to: payload.to,
           amount: payload.amount,
-        },
-        headers: {
-          apikey: process.env.REACT_APP_API_KEY,
-        },
+        }
       })
       .then((res) => {
         dispatch({
@@ -95,19 +88,13 @@ export const setExchangeRate = (payload) => async (dispatch) => {
       params: {
         base: "USD",
         symbols: payload,
-      },
-      headers: {
-        apikey: process.env.REACT_APP_API_KEY,
-      },
+      }
     });
     let EURRate = await axiosInstance.get(`latest`, {
       params: {
         base: "EUR",
         symbols: payload,
-      },
-      headers: {
-        apikey: process.env.REACT_APP_API_KEY,
-      },
+      }
     });
     dispatch({
       type: SET_EXCHANGE_RATE,
