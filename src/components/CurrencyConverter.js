@@ -52,8 +52,9 @@ function CurrencyConverter(props) {
         <Label>Amount</Label>
         <InputWrapper>
           <TextInput
+            type="number"
+            step="any" 
             name="amount"
-            type="text"
             onChange={formik.handleChange}
             value={formik.values.amount}
           />
