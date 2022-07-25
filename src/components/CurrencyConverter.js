@@ -57,9 +57,9 @@ function CurrencyConverter(props) {
             onChange={formik.handleChange}
             value={formik.values.amount}
           />
-          {formik.errors.amount ? (
+          {formik.errors.amount && (
             <ErrorMessage>{formik.errors.amount}</ErrorMessage>
-          ) : null}
+          )}
         </InputWrapper>
         <Label>from</Label>
         <InputWrapper>
@@ -70,9 +70,9 @@ function CurrencyConverter(props) {
             getOptionLabel={(option) => option.label}
             onChange={(option) => formik.setFieldValue("from", option.value)}
           />
-          {formik.errors.from ? (
+          {formik.errors.from && (
             <ErrorMessage>{formik.errors.from}</ErrorMessage>
-          ) : null}
+          )}
         </InputWrapper>
         <Label>to</Label>
         <InputWrapper>
@@ -83,9 +83,9 @@ function CurrencyConverter(props) {
             getOptionLabel={(option) => option.label}
             onChange={(option) => formik.setFieldValue("to", option.value)}
           />
-          {formik.errors.to ? (
+          {formik.errors.to && (
             <ErrorMessage>{formik.errors.to}</ErrorMessage>
-          ) : null}
+          )}
         </InputWrapper>
         <Button type="submit">Convert</Button>
       </Form>
